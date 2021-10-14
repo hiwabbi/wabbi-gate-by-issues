@@ -2,7 +2,7 @@
 Based on the status of Wabbi gate associated with the issue keys defined 
 in the pull request's commit messages, the pull request's title and the pull 
 request's source branch, this action will display the Wabbi gate status. If the
-gate status is FAILED, the action check will be set to fail.
+gate status is FAILED, the action exit code will be set to failure.
 
 ## Inputs
 ### `wabbiHost`
