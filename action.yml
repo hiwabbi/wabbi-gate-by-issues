@@ -1,0 +1,30 @@
+name: 'wabbi-gate-by-issues'
+description: 'Determine Wabbi gate pass status based on associated ticket keys'
+branding:
+  icon: 'check-square'  
+  color: 'green'
+inputs: 
+  wabbiHost:
+    description: 'URL to Wabbi site'
+    required: true
+  wabbiProjectId:
+    description: 'Wabbi project id associated with the GitHub repo'
+    required: true
+  issuePrefixes:
+    description: 'Comma separated list of associated issue project prefixes'
+    required: true
+  wabbiGateId:
+    description: 'Id of the Wabbi gate associated with the GitHub repo'
+    required: true
+  wabbiGateToken:
+    description: 'Secret Token to access the Wabbi Gate'
+    required: true
+  githubToken: 
+    description: 'set github token to secrets.GITHUB_TOKEN'
+    required: true
+outputs:
+  status:
+    description: 'Status of Wabbi gate pass'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
