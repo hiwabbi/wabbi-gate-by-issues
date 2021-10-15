@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: validate wabbi gate
         id: validate_gate
-        uses: hiwabbi/wabbi-gate-by-issue@main
+        uses: hiwabbi/wabbi-gate-by-issues@main
         with:
           wabbiHost: https://symphony.wabbi.io
           wabbiProjectId: 1
