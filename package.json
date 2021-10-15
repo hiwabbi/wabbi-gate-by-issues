@@ -1,5 +1,5 @@
 {
-  "name": "verify-wabbi-gate-pass",
+  "name": "wabbi-gate-by-issues",
   "version": "1.0.0",
   "description": "Verify status of Wabbi Gate for Associated Ticket Keys",
   "main": "index.js",
