@@ -1,6 +1,8 @@
 const getTicketKeys = require('./getTicketKeys');
 const getWabbiGatePass = require('./getWabbiGatePass');
 
+//linting error
+
 // Define parameters for unit testing
 const ISSUE_PREFIXES = 'AB,CD,EF';
 const PULL_REQUEST_TITLE = 'AB-1 This is a PR title';
