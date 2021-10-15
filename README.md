@@ -1,4 +1,4 @@
-# Get Wabbi Gate By Issue Action
+# Get Wabbi Gate By Issues Action
 Based on the status of Wabbi gate associated with the issue keys defined 
 in the pull request's commit messages, the pull request's title and the pull 
 request's source branch, this action will display the Wabbi gate status. If the
