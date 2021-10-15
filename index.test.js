@@ -18,7 +18,7 @@ const TICKET_KEY_COUNT = 7;
 
 // Mock the bent module.
 // The bent module is used to send HTTP requests to the Wabbi and GitHub
-// service. It is mocked to isolate the unit testing.
+// services. This module is mocked to isolate the unit testing.
 const bent = require('bent');
 jest.mock('bent');
 bent.mockImplementation((url, type, format) => {
