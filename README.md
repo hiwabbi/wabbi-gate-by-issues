@@ -37,7 +37,7 @@ jobs:
         with:
           wabbiHost: https://symphony.wabbi.io
           wabbiProjectId: 1
-          jiraPrefixes: AB,CD,EF
+          issuePrefixes: AB,CD,EF
           wabbiGateId: 1
           wabbiGateToken: ${{ secrets.GATE_TOKEN }}
           githubToken: ${{ secrets.GITHUB_TOKEN }}
