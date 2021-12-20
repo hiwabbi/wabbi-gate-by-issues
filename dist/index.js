@@ -9167,7 +9167,6 @@ const processPullRequestEvent = async (pullRequest) => {
 		// Display extracted ticket keys within action console
 		if (ticketKeys.length) {
 			console.log(`The ticket keys are ${ticketKeys}`);
-			console.log('No ticket keys found');
 		}
 		else {
 			console.log('No ticket keys found');
