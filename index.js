@@ -5,7 +5,7 @@ const getTicketKeys = require('./getTicketKeys');
 const getWabbiGatePass = require('./getWabbiGatePass');
 
 const GATE_PASSED = 'The Wabbi Gate passed.';
-const NO_GATE_STATUS = 'There is no Wabbi Gate status';
+const NO_GATE_STATUS = 'There is no Wabbi Gate status.';
 const GATE_FAILED_PART1 = 'There are 1 or more policies associated with ticket(s), ';
 const GATE_FAILED_PART2 = ', that have not yet been settled.';
 const PASSED_STATUS = 'PASSED';
@@ -42,7 +42,7 @@ const processPullRequestEvent = async (pullRequest) => {
 
 		// Display extracted ticket keys within action console
 		if (ticketKeys.length) {
-			console.log('No ticket keys found')
+			console.log('No ticket keys found');
 		}
 		else {
 			console.log(`The ticket keys are ${ticketKeys}`);
@@ -63,7 +63,7 @@ const processPullRequestEvent = async (pullRequest) => {
 			core.setOutput('status', NO_GATE_STATUS);
 		}
 		else {
-			let gateFailed = `${GATE_FAILED_PART1}${ticketKeys.join(', ')}${GATE_FAILED_PART2}`
+			let gateFailed = `${GATE_FAILED_PART1}${ticketKeys.join(', ')}${GATE_FAILED_PART2}`;
 			core.setOutput('status', gateFailed);
 			core.setFailed(gateFailed);
 		}
