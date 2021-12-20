@@ -1,4 +1,4 @@
-require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 5885:
@@ -9128,9 +9128,10 @@ const github = __nccwpck_require__(5438);
 const getTicketKeys = __nccwpck_require__(5885);
 const getWabbiGatePass = __nccwpck_require__(6981);
 
-const GATE_PASSED = 'Associated Wabbi Gate Passed';
-const NO_GATE_STATUS = 'No Associated Wabbi Gate Status';
-const GATE_FAILED = 'Associated Wabbi Gate Failed';
+const GATE_PASSED = 'The Wabbi Gate passed.';
+const NO_GATE_STATUS = 'There is no Wabbi Gate status.';
+const GATE_FAILED_PART1 = 'There are 1 or more policies associated with ticket(s), ';
+const GATE_FAILED_PART2 = ', that have not yet been settled.';
 const PASSED_STATUS = 'PASSED';
 
 /**
@@ -9164,7 +9165,12 @@ const processPullRequestEvent = async (pullRequest) => {
 			githubToken);
 
 		// Display extracted ticket keys within action console
-		console.log(`The ticket keys are ${ticketKeys}`);
+		if (ticketKeys.length) {
+			console.log('No ticket keys found');
+		}
+		else {
+			console.log(`The ticket keys are ${ticketKeys}`);
+		}
 
 		// Obtain the Wabbi Gate status associated with ticket keys
 		let gateStatus = await getWabbiGatePass(wabbiHost,
@@ -9181,8 +9187,9 @@ const processPullRequestEvent = async (pullRequest) => {
 			core.setOutput('status', NO_GATE_STATUS);
 		}
 		else {
-			core.setOutput('status', GATE_FAILED);
-			core.setFailed(GATE_FAILED);
+			let gateFailed = `${GATE_FAILED_PART1}${ticketKeys.join(', ')}${GATE_FAILED_PART2}`;
+			core.setOutput('status', gateFailed);
+			core.setFailed(gateFailed);
 		}
 	}
 	catch (error) {
@@ -9202,4 +9209,3 @@ Promise.resolve(
 module.exports = __webpack_exports__;
 /******/ })()
 ;
-//# sourceMappingURL=index.js.map
